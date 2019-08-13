@@ -75,25 +75,29 @@ ranking = [
 ########################################################################################################
 
 
-# REFACTOR: [:user]
+# REFACTOR: [:category]
 
 
-  @user
-    |
-    ^
-@ranking -< @selection >- @player
+              @user
+                |
+                ^
+@category -< @ranking -< @selection >- @player
 
 
 # Added Associations
 
+**Category**
+has_many :rankings
 
+**Ranking**
+belongs_to :category
 
 # Added Attributes
 
-*Categor*
+*Category*
 * title
 
-$ rails g resource User username email password_digest
+$ rails g resource Category title
 
 *Ranking*
 * category_id
