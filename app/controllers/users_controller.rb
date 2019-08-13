@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        redirect_to root_path if !@user
+        flash[:message] = "You Don't Have Access to That Page"
+        redirect_to rankings_path if !@user
     end
 
     private
