@@ -19,21 +19,21 @@ has_many :teams
 *Ranking*
 * description
 
-$ rails g resource Ranking description:text
+$ rails g resource Ranking description:text --no-test-framework
 
 *Selection*
 * rank_position
 * ranking_id
 * player_id
 
-$ rails g model Selection ranking_position:string ranking_id:integer player_id:integer ranking:belongs_to player:belongs_to
+$ rails g model Selection ranking_position:string ranking_id:integer player_id:integer ranking:belongs_to player:belongs_to --no-test-framework
 
 *Player*
 * name
 * position
 * number
 
-$ rails g resource Player name position number:integer
+$ rails g resource Player name position number:integer --no-test-framework
 
 
 # ranking_params
@@ -61,10 +61,11 @@ ranking = [
 
 # REFACTOR: 1   => [Category]
 
-              @user
-                |
-                ^
-@category -< @ranking -< @selection >- @player
+
+  @user
+    |
+    ^
+@ranking -< @selection >- @player
 
 
 # Added Associations
