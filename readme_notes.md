@@ -1,9 +1,18 @@
 # Domain
+
+  @user
+    |
+    ^
 @ranking -< @selection >- @player
+
 
 # Associations:
 
+**User**
+has_many :rankings
+
 **Ranking**
+belongs_to :user
 has_many :selections
 has_many :players, through: selections
 
@@ -12,14 +21,23 @@ belongs_to :ranking
 belongs_to :player
 
 **Player**
-has_many :teams
+has_many :selection
+has_many :rankings, through: :selections
 
 # Attributes
 
-*Ranking*
-* description
+*User*
+* username
+* email
+* password_digest
 
-$ rails g resource Ranking description:text --no-test-framework
+$ rails g resource User username email password_digest --no-test-framework
+
+*Ranking*
+* content
+* user_id
+
+$ rails g resource Ranking content:text user_id:integer user:belongs_to --no-test-framework
 
 *Selection*
 * rank_position
@@ -30,10 +48,8 @@ $ rails g model Selection ranking_position:string ranking_id:integer player_id:i
 
 *Player*
 * name
-* position
-* number
 
-$ rails g resource Player name position number:integer --no-test-framework
+$ rails g resource Player name --no-test-framework
 
 
 # ranking_params
@@ -59,7 +75,7 @@ ranking = [
 ########################################################################################################
 
 
-# REFACTOR: 1   => [Category]
+# REFACTOR: [:user]
 
 
   @user
@@ -70,25 +86,19 @@ ranking = [
 
 # Added Associations
 
-**User**
-has_many :rankings
 
-**Ranking**
-belongs_to :user
 
 # Added Attributes
 
-*User*
-* username
-* email
-* password_digest
+*Categor*
+* title
 
 $ rails g resource User username email password_digest
 
 *Ranking*
-* user_id
+* category_id
 
-$ rails g migration addUserIdToRankings user_id:integer user:belongs_to
+$ rails g migration addCategoryIdToRankings category_id:integer category:belongs_to
 
 
 ########################################################################################################
