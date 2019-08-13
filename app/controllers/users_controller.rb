@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_logged_in, only: [:show]
 
     def new
         @user = User.new
@@ -9,13 +10,16 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            redirect_to login_path
+            session[:id] = @user.id
+            redirect_to user_path(@user)
         else
             render :new
         end
     end
 
-    def show; end
+    def show
+        redirect_to root_path if !@user
+    end
 
     private
 
