@@ -1,0 +1,23 @@
+<%= form_for(@ranking) do |f|%>
+    <%= params.inspect %>
+
+    <h1>New <%= current_user.username.capitalize %> Ranking</h1>
+    <hr>
+
+    <!-- plural b/c rankings has_many selections -->
+    <ol>
+    <%= f.fields_for :selections do |selection_builder|%>
+        <li>
+            <%= selection_builder.collection_select(:player_id, Player.all, :id, :name, include_blank: true)%>
+        </li>
+        <br>
+    <% end %> <!-- selection_builder -->
+    </ol>
+
+    <%= f.label :content, "Honorable Mentions" %><br>
+    <%= f.text_area :content %>
+
+    <br>
+    <%= f.submit %>
+
+<% end %>
