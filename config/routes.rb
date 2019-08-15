@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
     root 'welcomes#home'    # get '/', to : 'welcomes#home'
 
     get 'signup', to: 'users#new'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
     delete 'logout', to: 'sessions#destroy'
 
+    resources :categories
     resources :players
     resources :rankings
     resources :users
