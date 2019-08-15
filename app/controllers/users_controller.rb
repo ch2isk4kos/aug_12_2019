@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            session[:id] = @user.id
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             render :new
@@ -31,5 +31,5 @@ class UsersController < ApplicationController
     def find_user
         @user = User.find(params[:id])
     end
-    
+
 end
