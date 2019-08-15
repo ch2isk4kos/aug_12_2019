@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Additional Gems
 gem 'pry'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
