@@ -5,9 +5,9 @@
         <% ranking.players.each do |player| %>
             <li><%= player.name %></li>
         <% end %>
-        <h5>Honorable Mention:</h5>
-        <p><%= ranking.description %></p>
-        <h6><%= ranking.created_at %> by: </h6>
+        <h5>Honorable Mentions:</h5>
+        <p><%= ranking.content %></p>
+        <h6>created @ <%= ranking.created_at %> by: <%= link_to ranking.user.username, user_path(ranking.user.id) %></h6>
     <hr>
     </ol>
 <% end %>

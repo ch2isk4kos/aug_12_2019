@@ -27,7 +27,7 @@ class RankingsController < ApplicationController
 
     def create
         @ranking = current_user.rankings.build(ranking_params) # @ranking = Ranking.new(ranking_params)
-        binding.pry
+        # binding.pry
         if @ranking.save
             redirect_to ranking_path(@ranking)
         else
@@ -41,7 +41,7 @@ class RankingsController < ApplicationController
     private
 
     def ranking_params
-        params.require(:ranking).permit(:description, player_ids: [], selections_attributes: [:player_id, player_attributes: [:name]])
+        params.require(:ranking).permit(:content, player_ids: [], selections_attributes: [:player_id, player_attributes: [:name]])
     end
 
     def find_ranking

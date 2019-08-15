@@ -1,0 +1,10 @@
+<h1><%= @user.username %> Ranking</h1>
+<hr>
+
+<% @user.rankings.each do |ranking| %>
+    <ol>
+    <% ranking.selections.each do |selection| %>
+        <li><%= link_to selection.player.name, player_path(selection.player) %>
+    <% end %>
+    </ol>
+<% end %>
