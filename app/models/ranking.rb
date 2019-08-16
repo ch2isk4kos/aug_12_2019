@@ -1,5 +1,6 @@
 class Ranking < ApplicationRecord
     belongs_to :user
+    belongs_to :category
     has_many :selections
     has_many :players, through: :selections
 
