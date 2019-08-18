@@ -1,20 +1,10 @@
-<h1>Ranking Show Page</h1>
-<%= params.inspect %>
 <hr>
+<h1><%= @ranking.category.title %></h1>
+<h1><%= @ranking.category %></h1>
+<%= params.inspect %>
+
 <ol>
     <% @ranking.selections.each do |selection| %>
         <li><%= link_to selection.player.name, player_path(selection.player) %></li>
     <% end %>
 </ol>
-
-<%= form_for :comment do |f|%>
-    <%= f.label :content, "Comment:" %><br>
-    <%= f.text_area :content %>
-    <br>
-    <%= f.submit %>
-<% end %>
-
-<% @ranking.comments.each do |comment| %>
-    <p><%= comment.content %></p>
-    <h6>created by: <%= link_to comment.user.username %> at <%= comment.created_at %></h6>
-<% end %>

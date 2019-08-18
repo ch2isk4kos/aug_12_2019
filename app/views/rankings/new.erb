@@ -1,8 +1,14 @@
 <%= form_for(@ranking) do |f|%>
-    <%= params.inspect %>
 
-    <h1>New <%= current_user.username.capitalize %> Ranking</h1>
+    <% if params[:category_id].blank? %>
+        <h2><%= f.label :category_id, "Select Category: " %><%= f.collection_select(:category_id, Category.all, :id, :title) %></h2>
+    <% else %>
+        <h1>New Top 5: <%# @ranking.category.title %> Ranking</h1>
+    <% end %>
+    <h4>by: <%= current_user.username.capitalize %></h4>
     <hr>
+
+    <%= params.inspect %>
 
     <!-- plural b/c rankings has_many selections -->
     <ol>

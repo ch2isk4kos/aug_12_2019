@@ -1,6 +1,7 @@
 <h3>Rankings | <%= link_to "new ranking", new_ranking_path %> |</h3>
 <hr>
 <% @rankings.each do |ranking| %>
+    <h3><%# ranking.category.title %></h3>
     <ol>
         <% ranking.players.each do |player| %>
             <li><%= player.name %></li>
