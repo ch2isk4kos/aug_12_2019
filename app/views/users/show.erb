@@ -2,13 +2,15 @@
 <hr>
 
 <% @user.rankings.each do |ranking| %>
-
+<ol>
     <h3>Top 5: <%= ranking.category.title %></h3>
 
-    <ol>
     <% ranking.selections.each do |selection| %>
         <li><%= link_to selection.player.name, player_path(selection.player) %>
     <% end %>
-    </ol>
+
+    <p>created at: <%= ranking.created_at %></p>
+    <hr>
+</ol>
 
 <% end %>
