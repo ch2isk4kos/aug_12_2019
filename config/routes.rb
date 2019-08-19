@@ -12,11 +12,13 @@ Rails.application.routes.draw do
 
     resources :categories
     resources :players
+    resources :rankings
 
     resources :categories do
         resources :rankings, shallow: true  # only: [:index, :new, :create]
     end
 
-    resources :rankings
     resources :users
+
+    # NOTE: the order of your resources matter
 end
