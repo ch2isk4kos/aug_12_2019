@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     delete 'logout', to: 'sessions#destroy'
 
     resources :categories
-    resources :players
     resources :rankings
+    resources :players
 
     resources :categories do
         resources :rankings, shallow: true  # only: [:index, :new, :create]
