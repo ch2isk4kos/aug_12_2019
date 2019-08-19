@@ -1,14 +1,21 @@
 <h3>Rankings | <%= link_to "new ranking", new_ranking_path %> |</h3>
 <hr>
 <% @rankings.each do |ranking| %>
+
     <h3><%= ranking.category.title %></h3>
+
     <ol>
     <% ranking.players.each do |player| %>
         <li><%= player.name %></li>
     <% end %>
+
+    <% if !ranking.content.blank? %>
         <h5>Honorable Mentions:</h5>
         <p><%= ranking.content %></p>
+    <% end %>
+
         <h6>created @ <%= ranking.created_at %> by: <%= link_to ranking.user.username, user_path(ranking.user.id) %></h6>
         <hr>
     </ol>
+
 <% end %>
