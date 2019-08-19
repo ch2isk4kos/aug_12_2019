@@ -3,21 +3,19 @@
     <% if params[:category_id].blank? %>
         <h2><%= f.label :category_id, "Select Category: " %><%= f.collection_select(:category_id, Category.all, :id, :title) %></h2>
     <% else %>
-        <h1>New Top 5: <%# @ranking.category.title %> Ranking</h1>
+        <h1>New Top 5: <%= @category.title %> Ranking</h1>
     <% end %>
     <h4>by: <%= current_user.username.capitalize %></h4>
     <hr>
 
-    <%= params.inspect %>
-
-    <!-- plural b/c rankings has_many selections -->
     <ol>
+    <!-- rankings has_many :selections (plural) -->
     <%= f.fields_for :selections do |selection_builder|%>
         <li>
             <%= selection_builder.collection_select(:player_id, Player.all, :id, :name, include_blank: true)%>
         </li>
         <br>
-    <% end %> <!-- selection_builder -->
+    <% end %>
     </ol>
 
     <%= f.label :content, "Honorable Mentions" %><br>
