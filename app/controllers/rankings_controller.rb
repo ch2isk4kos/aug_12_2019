@@ -12,7 +12,7 @@ class RankingsController < ApplicationController
             @category = Category.find_by(id: params[:id])
         end
 
-        @ranking = @user.rankings.build                   # build user      (has_many)
+        @ranking = current_user.rankings.build            # build user      (has_many)
         @ranking.build_category                           # build category  (belongs_to)
 
         5.times do                                        # selections
