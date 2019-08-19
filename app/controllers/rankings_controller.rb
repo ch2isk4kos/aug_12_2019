@@ -9,7 +9,7 @@ class RankingsController < ApplicationController
 
     def new
         if params[:category_id]     # Check params for nested resource/form
-            @category = Category.find_by(id: params[:id])
+            @category = Category.find_by(id: params[:category_id])
         end
 
         @ranking = current_user.rankings.build            # build user      (has_many)
