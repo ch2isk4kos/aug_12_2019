@@ -1,10 +1,8 @@
 <hr>
 <h1><%= @ranking.category.title %></h1>
-<h1><%= @ranking.category %></h1>
-<%= params.inspect %>
 
 <ol>
-    <% @ranking.selections.each do |selection| %>
-        <li><%= link_to selection.player.name, player_path(selection.player) %></li>
-    <% end %>
+<% @ranking.selections.each do |selection| %>
+    <li><%= link_to selection.player.name, player_path(selection.player) %></li>
+<% end %>
 </ol>
