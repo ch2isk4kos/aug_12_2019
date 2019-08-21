@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    root 'welcomes#home'                    # get '/', to : 'welcomes#home'
+    root 'welcomes#home'
 
     get 'signup', to: 'users#new'
     post 'signup', to: 'users#create'
@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     delete 'logout', to: 'sessions#destroy'
 
     resources :categories
-    resources :rankings
     resources :players
+    resources :rankings
 
     resources :categories do
-        resources :rankings, shallow: true  # only: [:index, :new, :create]
+        resources :rankings, shallow: true
     end
 
     resources :users
