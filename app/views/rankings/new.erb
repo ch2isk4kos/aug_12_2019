@@ -1,7 +1,5 @@
 <%= form_for(@ranking) do |f|%>
 
-    <%= @ranking.errors.full_messages %>
-
     <% if params[:category_id].blank? %>
         <h2><%= f.label :category_id, "Select Category: " %>
             <%= f.collection_select(:category_id, Category.all, :id, :title) %></h2>
