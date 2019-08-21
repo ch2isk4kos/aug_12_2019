@@ -10,6 +10,7 @@ class RankingsController < ApplicationController
     def new
         if params[:category_id]
             @category = Category.find_by(id: params[:category_id])
+            # @ranking.category_id = params[:category_id]
         end
 
         @ranking = current_user.rankings.build
