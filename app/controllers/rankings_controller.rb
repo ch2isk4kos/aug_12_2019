@@ -8,36 +8,44 @@ class RankingsController < ApplicationController
     end
 
     def new
-        if params[:category_id]     # Check params for nested resource/form
+        if params[:category_id]
             @category = Category.find_by(id: params[:category_id])
         end
 
-        @ranking = current_user.rankings.build            # build user      (has_many)
-        @ranking.build_category                           # build category  (belongs_to)
+        @ranking = current_user.rankings.build
+        # @ranking.build_category
 
-        5.times do                                        # selections
-            selection_builder = @ranking.selections.build # .objects.build  => builds a has_many relationship
-            selection_builder.build_player                # .build_object   => builds a belongs_to relationship
+        5.times do
+            selection_builder = @ranking.selections.build
+            selection_builder.build_player
         end
     end
 
     def create
-        @ranking = current_user.rankings.build(ranking_params) # @ranking = Ranking.new(ranking_params)
+        @ranking = current_user.rankings.build(ranking_params)
+
+        # binding.pry
 
         if @ranking.save
             redirect_to ranking_path(@ranking)
         else
             render :new
         end
-
     end
 
-    def show; end
+    def show
+    end
 
     private
 
     def ranking_params
-        params.require(:ranking).permit(:content, :user_id, :category_id, selections_attributes: [:player_id, player_attributes: [:name]], player_ids: [])
+        params.require(:ranking).permit(
+            :content,
+            :user_id,
+            :category_id,
+            selections_attributes: [:player_id, player_attributes: [:name]],
+            player_ids: []
+        )
     end
 
     def find_ranking

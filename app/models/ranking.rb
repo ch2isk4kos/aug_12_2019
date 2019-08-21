@@ -9,9 +9,9 @@ class Ranking < ApplicationRecord
     accepts_nested_attributes_for :players
 
     # belongs_to
-    # def category_attributes=(category_params)
-    #     self.category = Category.find_or_create_by(category_params) if !category_params[:title].blank?
-    # end
+    def category_attributes=(category_params)
+        self.category = Category.find_or_create_by(category_params) if !category_params[:title].blank?
+    end
 
     # has_many
     def selections_attributes=(selection_params)
