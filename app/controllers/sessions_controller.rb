@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         user = User.from_omniauth(auth)
         user.save
         session[:user_id] = user.id
-        redirect_to ranking_path(user)
+        redirect_to user
     end
 
     # logout (destroy session)
