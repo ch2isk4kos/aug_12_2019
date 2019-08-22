@@ -149,25 +149,7 @@ These routes manage the response after google authenticates the request.
 
 #############################################################################
 
-6. **migrations**
-
-#############################################################################
-
-* add google_token and google_refresh_token columns to the user table
-
-```ruby
-
-    # ActiveRecord::Migration
-    def change
-        add_column :users, google_token, :string
-        add_column :users, google_refresh_token, :string
-    end
-
-```
-
-#############################################################################
-
-7. **controller**
+6. **controller**
 
 #############################################################################
 
@@ -231,7 +213,7 @@ you can visit https://myaccount.google.com/permissions to remove access of your 
 
 #############################################################################
 
-8. **user model**
+7. **user model**
 
 #############################################################################
 
