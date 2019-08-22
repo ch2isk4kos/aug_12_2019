@@ -63,7 +63,7 @@ the approach chosen here will utilize a .env file
     - click create an OAuth client ID
 
 *NOTE*
-this is where you require the client ID and client secret from your rails app
+this is where you require the client ID and client secret for your .env file
 
 ###########################################################################
 
