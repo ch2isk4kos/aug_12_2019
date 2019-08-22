@@ -69,7 +69,7 @@ this is where you require the client ID and client secret for your .env file
 
 3. **.env && .gitignore files**
 
-###########################################################################
+############################################################################
 
 * create .env file
 
