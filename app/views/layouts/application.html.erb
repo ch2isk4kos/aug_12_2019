@@ -13,11 +13,13 @@
 
     <nav class='navbar'>
         <% if logged_in? %>
-            logged in: <%= link_to @current_user.username, @current_user %> |
+            <h4>Top-5-Ranker |
             <%= link_to 'home', root_path %> |
             <%= link_to "category", categories_path %> |
             <%= link_to "rankings", rankings_path %> |
-            <%= link_to "logout", '/logout', method: :delete %>
+            <%= link_to "players", players_path %> |
+            logged in: <%= link_to @current_user.username, @current_user %> |
+            <%= link_to "logout", '/logout', method: :delete %></h4>
         <% else %>
             <%= link_to "Sign Up",  signup_path %> |
             <%= link_to "Login", login_path %> |
