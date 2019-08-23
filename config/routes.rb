@@ -12,15 +12,16 @@ Rails.application.routes.draw do
 
     delete 'logout', to: 'sessions#destroy'
 
+    resources :users
+
     resources :categories
-    resources :players
     resources :rankings
 
     resources :categories do
         resources :rankings, shallow: true
     end
 
-    resources :users
+    resources :players
 
     # NOTE: the order of your resources matter
 end
