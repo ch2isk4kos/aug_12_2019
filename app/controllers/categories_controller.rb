@@ -6,7 +6,10 @@ class CategoriesController < ApplicationController
         @categories = Category.all
     end
 
-    def show; end
+    def show
+        @category_count = @category.rankings.count
+        # binding.pry
+    end
 
     private
 

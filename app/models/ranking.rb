@@ -4,6 +4,9 @@ class Ranking < ApplicationRecord
     has_many :selections
     has_many :players, through: :selections
 
+    # scope :category_count, -> { joins(:category).where('category_id = ?', true).count }
+    # scope :user_count, -> { joins(:user).where('user_id = ?', true).count }
+
     accepts_nested_attributes_for :category
     accepts_nested_attributes_for :selections
     accepts_nested_attributes_for :players

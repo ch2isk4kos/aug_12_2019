@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-    # bcrypt encryption
+
+    # bcrypt password encryption
     has_secure_password
 
     # associations
