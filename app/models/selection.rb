@@ -2,6 +2,8 @@ class Selection < ApplicationRecord
     belongs_to :ranking
     belongs_to :player
 
+    scope :most_popular_player, -> { where("player_id = ?", true).first.player.name }
+
     accepts_nested_attributes_for :player
 
     # In order for a Selection to create a new player
@@ -17,5 +19,5 @@ class Selection < ApplicationRecord
             self.player = Player.find_or_create_by(player_params)
         end
     end
-    
+
 end
