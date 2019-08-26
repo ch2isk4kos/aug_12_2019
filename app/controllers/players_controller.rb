@@ -3,7 +3,8 @@ class PlayersController < ApplicationController
     before_action :find_player, only: [:show]
 
     def index
-        @players = Player.all
+        @players = Player.alphabetical_order
+        # binding.pry
     end
 
     def new
