@@ -1,4 +1,4 @@
-<h2>All Rankings | <%= link_to "new ranking", new_ranking_path %> |</h2>
+<h3>All Rankings | <%= link_to "new ranking", new_ranking_path %> |</h3>
 <hr>
 <% @rankings.each do |ranking| %>
     <ol>
@@ -9,8 +9,7 @@
     <% end %>
 
     <% if !ranking.content.blank? %>
-        <h5>Honorable Mentions:</h5>
-        <p><%= ranking.content %></p>
+        <h5><%= link_to "Honorable Mentions", ranking_path(ranking) %></h5>
     <% end %>
 
         <h6>created @ <%= ranking.created_at %> by: <%= link_to ranking.user.username, user_path(ranking.user.id) %></h6>

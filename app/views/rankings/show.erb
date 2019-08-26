@@ -1,10 +1,11 @@
-<h1>Top 5: <%= @ranking.category.title %></h1>
+<h2><%= link_to "#{@ranking.user.username}", user_path(@ranking.user.id)%>'s Top 5: <%= @ranking.category.title %></h2>
 <hr>
+
 <ol>
 <% @ranking.selections.each do |selection| %>
     <li><%= selection.player.name %></li>
 <% end %>
-    <h3>created by: <%= link_to @ranking.user.username, user_path(@ranking.user.id) %></h3>
-    <%# link_to selection.player.name, player_path(selection.player) %>
     <hr>
+    <h4>Honorable Mentions:</h4>
+    <p><%= @ranking.content %></p>
 </ol>

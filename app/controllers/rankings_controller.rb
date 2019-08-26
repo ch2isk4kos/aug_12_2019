@@ -4,7 +4,7 @@ class RankingsController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:new, :create]
 
     def index
-        @rankings = Ranking.all.order("created_at DESC")
+        @rankings = Ranking.order("created_at DESC")
     end
 
     def new
