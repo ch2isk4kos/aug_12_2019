@@ -8,7 +8,6 @@ class CategoriesController < ApplicationController
 
     def show
         @category_count = @category.rankings.count
-        # binding.pry
     end
 
     private
