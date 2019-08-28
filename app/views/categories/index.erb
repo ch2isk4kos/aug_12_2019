@@ -1,6 +1,6 @@
 <br>
-<h2>Categories</h2>
+<h1>Categories</h1>
 <hr>
 <% @categories.each do |category| %>
-    <h3><%= link_to category.title, category_path(category) %></h3>
+    <h5><%= link_to category.title, category_path(category) %></h5>
 <% end %>
