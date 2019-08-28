@@ -1,6 +1,7 @@
+<br>
 <h1><%= @category.title %> Rankings</h1>
-<h4><%= link_to "New #{@category.title} Ranking", new_category_ranking_path(@category) %> :
-    <%= @category_count %> Rankings</h4>
+<h5><%= link_to "New #{@category.title} Ranking", new_category_ranking_path(@category) %> :
+    <%= @category_count %> Rankings</h5>
 <hr>
 
 <% @category.rankings.each do |ranking| %>
@@ -8,9 +9,9 @@
         <% ranking.selections.each do |selection| %>
             <li><%= selection.player.name %></li>
         <% end %>
-
-        <h4><%= link_to "Honorable Mentions", ranking_path(ranking) %></h4>
-        <h5>created by: <%= link_to ranking.user.username, user_path(ranking.user.id) %></h5>
+        <br>
+        <h6><%= link_to "Honorable Mentions", ranking_path(ranking) %></h6>
+        <h6>created by: <%= link_to ranking.user.username, user_path(ranking.user.id) %></h6>
     </ol>
     <hr>
 <% end %>
