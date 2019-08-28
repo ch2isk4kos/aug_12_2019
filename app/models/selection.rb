@@ -2,7 +2,7 @@ class Selection < ApplicationRecord
     belongs_to :ranking
     belongs_to :player
 
-    scope :most_popular_player, -> { where("player_id = ?", true).first.player.name }
+    scope :most_popular_player, -> { joins(:player).group(:name).order("count(name)").pluck(:name).first }
 
     accepts_nested_attributes_for :player
 
