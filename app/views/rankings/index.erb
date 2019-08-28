@@ -1,9 +1,9 @@
 <br>
-<h4>All Rankings : <%= link_to "new ranking", new_ranking_path %> </h4>
+<h3>All Rankings : <%= link_to "new ranking", new_ranking_path %> </h3>
 <hr>
 <% @rankings.each do |ranking| %>
     <ol>
-    <h4>Top 5: <%= link_to ranking.category.title, category_path(ranking.category) %></h4>
+    <h5>Top 5: <%= link_to ranking.category.title, category_path(ranking.category) %></h5>
 
     <% ranking.players.each do |player| %>
         <li><%= player.name %></li>
