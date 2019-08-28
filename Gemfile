@@ -28,13 +28,19 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 # Additional Gems
+
+# Testing
 gem 'pry'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 
 # Google OAuth2
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+
+# Styling
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
