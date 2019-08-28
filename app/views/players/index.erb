@@ -1,5 +1,6 @@
+<br>
 <h1>Players</h1>
 <hr>
 <% @players.each do |player| %>
-    <h4><%= player.name %></h4>
+    <h5><%= link_to player.name, player_path(player)  %></h5>
 <% end %>
