@@ -5,9 +5,8 @@ class Ranking < ApplicationRecord
     has_many :players, through: :selections
 
     scope :most_recent, -> { limit(5) }
-    scope :most_popular_user, -> { where("user_id = ?", true).first.user.username }
-    scope :most_popular_category, -> { where("category_id = ?", true).first.category.title }
-    scope :most_popular_player, -> { joins(:selections).where("player_id = ?", true).first.players.first.name }
+    scope :most_popular_user, -> { joins(:user).group("username").order("count(user_id) DESC").pluck(:username).first }
+    scope :most_popular_category, -> { joins(:category).group("title").order("count(category_id) DESC").pluck(:title).first }
 
     accepts_nested_attributes_for :category
     accepts_nested_attributes_for :selections
