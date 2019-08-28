@@ -1,14 +1,15 @@
+<br>
 <%= form_for(@ranking) do |f|%>
 
     <% if params[:category_id].blank? %>
-        <h2><%= f.label :category_id, "Select Category: " %>
-            <%= f.collection_select(:category_id, Category.all, :id, :title) %></h2>
+        <h4><%= f.label :category_id, "Select Category: " %>
+            <%= f.collection_select(:category_id, Category.all, :id, :title) %></h4>
     <% else %>
-        <h2>New Top 5: <%= @category.title %> Ranking</h2>
+        <h4>New Top 5: <%= @category.title %> Ranking</h4>
         <%= f.hidden_field :category_id, value: @category.id %>
     <% end %>
 
-    <h4>by: <%= current_user.username.capitalize %></h4>
+    <h5>by: <%= current_user.username.capitalize %></h5>
     <hr>
 
     <ol>
